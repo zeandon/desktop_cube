@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "time_and_weather",
-    "project_version":    "3fbc4b0-dirty",
+    "project_version":    "bcb999b-dirty",
     "project_path":       "/root/my_esp_project/desktop_cube",
     "idf_path":           "/root/esp/esp-idf",
     "build_dir":          "/root/my_esp_project/desktop_cube/build",
@@ -1180,7 +1180,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "protocol_examples_common" ],
             "file": "/root/my_esp_project/desktop_cube/build/esp-idf/main/libmain.a",
-            "sources": [ "/root/my_esp_project/desktop_cube/main/main.c" ],
+            "sources": [ "/root/my_esp_project/desktop_cube/main/main.c", "/root/my_esp_project/desktop_cube/main/get_time_and_weather.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
