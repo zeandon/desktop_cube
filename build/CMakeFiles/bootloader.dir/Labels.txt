@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader
+/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader.rule
+/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader-complete.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule

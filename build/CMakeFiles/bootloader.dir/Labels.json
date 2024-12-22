@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/chenzhaoqing/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}
