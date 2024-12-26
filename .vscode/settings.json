@@ -1,0 +1,10 @@
+{
+    "idf.openOcdConfigs": [
+        "board/esp32-wrover-kit-3.3v.cfg"
+    ],
+    "idf.flashType": "UART",
+    "files.associations": {
+        "esp_lcd_touch_stmpe610.h": "c"
+    },
+    "idf.port": "/dev/ttyUSB0"
+}
