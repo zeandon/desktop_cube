@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "sd_card",
-    "project_version":    "1",
+    "project_version":    "787fdfb-dirty",
     "project_path":       "/home/chenzhaoqing/desktop_cube",
     "idf_path":           "/home/chenzhaoqing/esp32/esp-idf",
     "build_dir":          "/home/chenzhaoqing/desktop_cube/build",

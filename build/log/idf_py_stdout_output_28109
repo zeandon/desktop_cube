@@ -1,0 +1,5 @@
+[1/4] cd /home/chenzhaoqing/desktop_cube/build/esp-idf/esptool_py && /home/chenzhaoqing/.espressif/python_env/idf5.2_py3.8_env/bin/python /home/chenzhaoqing/esp32/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/chenzhaoqing/desktop_cube/build/partition_table/partition-table.bin /home/chenzhaoqing/desktop_cube/build/sd_card.bin
+sd_card.bin binary size 0x454b0 bytes. Smallest app partition is 0x100000 bytes. 0xbab50 bytes (73%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /home/chenzhaoqing/desktop_cube/build/bootloader/esp-idf/esptool_py && /home/chenzhaoqing/.espressif/python_env/idf5.2_py3.8_env/bin/python /home/chenzhaoqing/esp32/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/chenzhaoqing/desktop_cube/build/bootloader/bootloader.bin
+Bootloader binary size 0x6850 bytes. 0x7b0 bytes (7%) free.
