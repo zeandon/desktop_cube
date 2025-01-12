@@ -14,7 +14,9 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_sntp.h"
+
 #include "get_time_and_weather.h"
+#include "myuart.h"
 
 // TAG define
 #define HTTP_TAG            "HTTP_CLIENT"
@@ -76,6 +78,53 @@ static void Task_RTCGetTime(void* arg){
         localtime_r(&now, &timeinfo);
         strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
         ESP_LOGI(TIME_TAG, "现在日期、时间: %s", strftime_buf);
+
+        // 使用串口打印当前时间
+        // // 判断是否为夏令时
+        // uart_send_string("is dst?:");
+        // uart_send_num(timeinfo.tm_isdst);
+        // uart_send_string("\r\n");
+
+        // // 今年的第几天
+        // uart_send_string("yday:");
+        // uart_send_num(timeinfo.tm_yday);
+        // uart_send_string("\r\n");
+
+        // 年
+        uart_send_string("year:");
+        uart_send_num(timeinfo.tm_year);
+        uart_send_string("\r\n");
+
+        // 月
+        uart_send_string("month:");
+        uart_send_num(timeinfo.tm_mon);
+        uart_send_string("\r\n");
+
+        // 日
+        uart_send_string("mday:");
+        uart_send_num(timeinfo.tm_mday);
+        uart_send_string("\r\n");
+
+        // 周
+        uart_send_string("wday:");
+        uart_send_num(timeinfo.tm_wday);
+        uart_send_string("\r\n");
+
+        // 时
+        uart_send_string("hour:");
+        uart_send_num(timeinfo.tm_hour);
+        uart_send_string("\r\n");
+
+        // 分
+        uart_send_string("minute:");
+        uart_send_num(timeinfo.tm_min);
+        uart_send_string("\r\n");
+
+        // 秒
+        uart_send_string("second:");
+        uart_send_num(timeinfo.tm_sec);
+        uart_send_string("\r\n");
+
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
@@ -101,9 +150,15 @@ void app_main(void)
     ESP_ERROR_CHECK(example_connect());
     ESP_LOGI(HTTP_TAG, "Connected to AP, begin task");
 
-    //创建任务（数字越大优先级越高）
+    // UART初始化
+    uart_init();
+
+    // 创建任务（数字越大优先级越高）
+    // 联网获取时间任务
     xTaskCreatePinnedToCore(Task_HttpGetTime, "http get time", 8192, NULL, 6, NULL, 1);
+    // 联网获取天气任务
     xTaskCreatePinnedToCore(Task_HttpGetWeather, "http get weather", 8192, NULL, 5, NULL, 1);
+    // RTC获取时间任务
     xTaskCreatePinnedToCore(Task_RTCGetTime, "rtc get time", 4096, NULL, 3, NULL, 0);
 
     while(1){

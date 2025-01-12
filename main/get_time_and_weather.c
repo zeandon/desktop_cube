@@ -14,7 +14,9 @@
 #include "esp_log.h"
 #include "esp_http_client.h"
 #include "cJSON.h"
+
 #include "get_time_and_weather.h"
+#include "myuart.h"
 
 // 参数 define
 #define MAX_HTTP_OUTPUT_BUFFER 2048
@@ -235,7 +237,33 @@ static void Weather_http_rest_with_url(void)
     char *wind_class = cJSON_GetObjectItem(now,"wind_class")->valuestring; //风力
     char *wind_dir = cJSON_GetObjectItem(now,"wind_dir")->valuestring;     //风向
 
+    // 通过LOG打印得到的数据
     ESP_LOGI(WEATHER_TAG,"地区 %s\r\n天气 %s\r\n温度 %d\r\n湿度 %d\r\n风力 %s\r\n风向 %s\r\n",name,text,temp,rh,wind_class,wind_dir);
+
+    // 通过串口打印得到的数据
+    uart_send_string("location:");
+    uart_send_string(name);
+    uart_send_string("\r\n");
+
+    uart_send_string("weather:");
+    uart_send_string(text);
+    uart_send_string("\r\n");
+
+    uart_send_string("temperature:");
+    uart_send_num(temp);
+    uart_send_string("\r\n");
+
+    uart_send_string("humidity:");
+    uart_send_num(rh);
+    uart_send_string("\r\n");
+
+    uart_send_string("wind power:");
+    uart_send_string(wind_class);
+    uart_send_string("\r\n");
+
+    uart_send_string("wind direction:");
+    uart_send_string(wind_dir);
+    uart_send_string("\r\n");
 
     //删除cJSON结构体对象，防止内存泄漏
     cJSON_Delete(root);

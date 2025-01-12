@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader"
+			"file" : "/root/my_esp_project/time_and_weather/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/root/my_esp_project/time_and_weather/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

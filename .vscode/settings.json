@@ -1,8 +1,12 @@
 {
-    "idf.port": "/dev/ttyACM0",
+    "idf.port": "/dev/ttyUSB0",
     "idf.flashType": "UART",
     "files.associations": {
         "param.h": "c",
-        "get_time_and_weather.h": "c"
-    }
+        "get_time_and_weather.h": "c",
+        "myuart.h": "c"
+    },
+    "idf.openOcdConfigs": [
+        "board/esp32-wrover-kit-3.3v.cfg"
+    ]
 }

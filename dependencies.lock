@@ -12,5 +12,5 @@ dependencies:
 direct_dependencies:
 - protocol_examples_common
 manifest_hash: 7b9d731eb2beeed575bec87491ff1c8c98f68805f232bee58e69aa4ea404c33e
-target: esp32s3
+target: esp32
 version: 2.0.0
