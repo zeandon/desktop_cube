@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "time_and_weather",
-    "project_version":    "befcfb6-dirty",
+    "project_version":    "c739fc2-dirty",
     "project_path":       "/root/my_esp_project/desktop_cube",
     "idf_path":           "/root/esp/esp-idf",
     "build_dir":          "/root/my_esp_project/desktop_cube/build",
