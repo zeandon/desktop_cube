@@ -1,4 +1,4 @@
-# Install script for directory: /root/my_esp_project/adc_battery/main
+# Install script for directory: /root/my_esp_project/desktop_cube/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

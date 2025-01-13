@@ -3,19 +3,14 @@ dependencies:
     source:
       type: idf
     version: 5.3.1
-  ningzixi/battery_monitor:
-    component_hash: d7ceb4575685b1806582eba9d83d7b29d6fd02f8246caeb0df6a6b799c87151d
-    dependencies:
-    - name: idf
-      require: private
-      version: '>=5.3.1'
+  protocol_examples_common:
+    dependencies: []
     source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 1.0.0
+      path: /root/esp/esp-idf/examples/common_components/protocol_examples_common
+      type: local
+    version: '*'
 direct_dependencies:
-- idf
-- ningzixi/battery_monitor
-manifest_hash: 2aa580eefe3512f7cc6044c8529757730cc653810714bf54932c8ad97f0186d6
+- protocol_examples_common
+manifest_hash: 7b9d731eb2beeed575bec87491ff1c8c98f68805f232bee58e69aa4ea404c33e
 target: esp32
 version: 2.0.0
