@@ -26,7 +26,7 @@
 #include "esp_avrc_api.h"
 
 /* device name */
-#define LOCAL_DEVICE_NAME    "ESP_SPEAKER"
+#define LOCAL_DEVICE_NAME    "desktop_cube"
 
 /* event for stack up */
 enum {

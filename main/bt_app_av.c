@@ -254,7 +254,8 @@ static void volume_change_simulation(void *arg)
     for (;;) {
         /* volume up locally every 10 seconds */
         vTaskDelay(10000 / portTICK_PERIOD_MS);
-        uint8_t volume = (s_volume + 5) & 0x7f;
+        //uint8_t volume = (s_volume + 5) & 0x7f;
+        uint8_t volume = s_volume;      // 不要在ESP32上修改音量
         volume_set_by_local_host(volume);
     }
 }
