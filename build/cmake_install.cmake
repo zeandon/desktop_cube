@@ -1,4 +1,4 @@
-# Install script for directory: /root/my_esp_project/bluetooth
+# Install script for directory: /root/my_esp_project/desktop_cube
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/my_esp_project/bluetooth/build/esp-idf/cmake_install.cmake")
+  include("/root/my_esp_project/desktop_cube/build/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/my_esp_project/bluetooth/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/my_esp_project/desktop_cube/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

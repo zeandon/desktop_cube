@@ -203,7 +203,7 @@ bool bt_app_work_dispatch(bt_app_cb_t p_cback, uint16_t event, void *p_params, i
 void bt_app_task_start_up(void)
 {
     s_bt_app_task_queue = xQueueCreate(10, sizeof(bt_app_msg_t));
-    xTaskCreate(bt_app_task_handler, "BtAppTask", 3072, NULL, 10, &s_bt_app_task_handle);
+    xTaskCreate(bt_app_task_handler, "BtAppTask", 4096, NULL, 15, &s_bt_app_task_handle);
 }
 
 // 关闭应用任务函数
@@ -232,7 +232,7 @@ void bt_i2s_task_start_up(void)
         ESP_LOGE(BT_APP_CORE_TAG, "%s, ringbuffer create failed", __func__);
         return;
     }
-    xTaskCreate(bt_i2s_task_handler, "BtI2STask", 2048, NULL, configMAX_PRIORITIES - 3, &s_bt_i2s_task_handle);
+    xTaskCreate(bt_i2s_task_handler, "BtI2STask", 4096, NULL, configMAX_PRIORITIES - 3, &s_bt_i2s_task_handle);
 }
 
 // 关闭I2S任务
