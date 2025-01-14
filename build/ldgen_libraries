@@ -80,4 +80,5 @@
 /root/my_esp_project/desktop_cube/build/esp-idf/perfmon/libperfmon.a
 /root/my_esp_project/desktop_cube/build/esp-idf/spiffs/libspiffs.a
 /root/my_esp_project/desktop_cube/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/libprotocol_examples_common.a
 /root/my_esp_project/desktop_cube/build/esp-idf/main/libmain.a

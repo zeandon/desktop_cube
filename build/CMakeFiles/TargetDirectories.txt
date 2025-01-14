@@ -12,7 +12,7 @@
 /root/my_esp_project/desktop_cube/build/CMakeFiles/flash.dir
 /root/my_esp_project/desktop_cube/build/CMakeFiles/encrypted-flash.dir
 /root/my_esp_project/desktop_cube/build/CMakeFiles/_project_elf_src.dir
-/root/my_esp_project/desktop_cube/build/CMakeFiles/bluetooth.elf.dir
+/root/my_esp_project/desktop_cube/build/CMakeFiles/desktop.elf.dir
 /root/my_esp_project/desktop_cube/build/CMakeFiles/size.dir
 /root/my_esp_project/desktop_cube/build/CMakeFiles/size-files.dir
 /root/my_esp_project/desktop_cube/build/CMakeFiles/size-components.dir
@@ -811,6 +811,13 @@
 /root/my_esp_project/desktop_cube/build/esp-idf/wifi_provisioning/CMakeFiles/install.dir
 /root/my_esp_project/desktop_cube/build/esp-idf/wifi_provisioning/CMakeFiles/install/local.dir
 /root/my_esp_project/desktop_cube/build/esp-idf/wifi_provisioning/CMakeFiles/install/strip.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/edit_cache.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/rebuild_cache.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/list_install_components.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/install.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/install/local.dir
+/root/my_esp_project/desktop_cube/build/esp-idf/protocol_examples_common/CMakeFiles/install/strip.dir
 /root/my_esp_project/desktop_cube/build/esp-idf/main/CMakeFiles/__idf_main.dir
 /root/my_esp_project/desktop_cube/build/esp-idf/main/CMakeFiles/edit_cache.dir
 /root/my_esp_project/desktop_cube/build/esp-idf/main/CMakeFiles/rebuild_cache.dir

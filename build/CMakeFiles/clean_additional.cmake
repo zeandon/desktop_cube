@@ -3,13 +3,13 @@ cmake_minimum_required(VERSION 3.16)
 
 if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   file(REMOVE_RECURSE
-  "bluetooth.bin"
-  "bluetooth.map"
   "bootloader/bootloader.bin"
   "bootloader/bootloader.elf"
   "bootloader/bootloader.map"
   "config/sdkconfig.cmake"
   "config/sdkconfig.h"
+  "desktop.bin"
+  "desktop.map"
   "esp-idf/esptool_py/flasher_args.json.in"
   "esp-idf/mbedtls/x509_crt_bundle"
   "flash_app_args"

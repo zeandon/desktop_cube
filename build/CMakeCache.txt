@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//No help, variable specified on the command line.
+CCACHE_ENABLE:UNINITIALIZED=0
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/root/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-addr2line
 
@@ -210,7 +213,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=bluetooth
+CMAKE_PROJECT_NAME:STATIC=desktop
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=3.6.0
@@ -344,10 +347,10 @@ Mbed TLS_IS_TOP_LEVEL:STATIC=OFF
 Mbed TLS_SOURCE_DIR:STATIC=/root/esp/esp-idf/components/mbedtls/mbedtls
 
 //No help, variable specified on the command line.
-PYTHON_DEPS_CHECKED:UNINITIALIZED=1
+PYTHON:UNINITIALIZED=/root/.espressif/python_env/idf5.3_py3.10_env/bin/python
 
 //No help, variable specified on the command line.
-SDKCONFIG:UNINITIALIZED=/root/my_esp_project/desktop_cube/sdkconfig
+PYTHON_DEPS_CHECKED:UNINITIALIZED=1
 
 //Allow unsafe builds. These builds ARE NOT SECURE.
 UNSAFE_BUILD:BOOL=OFF
@@ -366,6 +369,15 @@ bluetooth_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 bluetooth_SOURCE_DIR:STATIC=/root/my_esp_project/desktop_cube
+
+//Value Computed by CMake
+desktop_BINARY_DIR:STATIC=/root/my_esp_project/desktop_cube/build
+
+//Value Computed by CMake
+desktop_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+desktop_SOURCE_DIR:STATIC=/root/my_esp_project/desktop_cube
 
 //Value Computed by CMake
 esp-idf_BINARY_DIR:STATIC=/root/my_esp_project/desktop_cube/build/esp-idf
@@ -539,7 +551,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=115
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=116
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
