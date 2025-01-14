@@ -294,6 +294,12 @@ void app_main(void)
     // 派发栈初始化任务
     bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
 
+    // //连接WIFI
+    // ESP_ERROR_CHECK(esp_netif_init());
+    // ESP_ERROR_CHECK(esp_event_loop_create_default());
+    // ESP_ERROR_CHECK(example_connect());
+    // ESP_LOGI(HTTP_TAG, "Connected to AP, begin task");
+
     // 拉高GPIO25，使能MAX98357
     gpio_config_t Gpio_config = {
         .pin_bit_mask = (1ull << GPIO_NUM_25),
