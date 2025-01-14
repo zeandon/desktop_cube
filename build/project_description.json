@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "desktop",
-    "project_version":    "9b38ed0-dirty",
+    "project_version":    "b2e9877-dirty",
     "project_path":       "/root/my_esp_project/desktop_cube",
     "idf_path":           "/root/esp/esp-idf",
     "build_dir":          "/root/my_esp_project/desktop_cube/build",

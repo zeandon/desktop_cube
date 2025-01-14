@@ -19,7 +19,7 @@
 #include "myuart.h"
 
 // 参数 define
-#define MAX_HTTP_OUTPUT_BUFFER 2048
+#define MAX_HTTP_OUTPUT_BUFFER 4096
 // url define
 #define SUNING_URL          "https://f.m.suning.com/api/ct.do"
 #define BAIDUMAP_URL        "https://api.map.baidu.com/weather/v1/?district_id=420111&data_type=all&ak=giWJALg51ZIWPEUfLbv8p5n9U05xT6Pm"
