@@ -232,7 +232,7 @@ void bt_i2s_task_start_up(void)
         ESP_LOGE(BT_APP_CORE_TAG, "%s, ringbuffer create failed", __func__);
         return;
     }
-    xTaskCreate(bt_i2s_task_handler, "BtI2STask", 4096, NULL, configMAX_PRIORITIES - 3, &s_bt_i2s_task_handle);
+    xTaskCreate(bt_i2s_task_handler, "BtI2STask", 4096, NULL, configMAX_PRIORITIES - 2, &s_bt_i2s_task_handle);
 }
 
 // 关闭I2S任务

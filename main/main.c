@@ -228,12 +228,9 @@ static void bt_av_hdl_stack_evt(uint16_t event, void *p_param)
  * 返回值：无
  */
 static void Task_HttpGetTime(void* arg){
-    while(1){
-        // get_time();
-        //1min刷新一次时间（调试用10s）
-        vTaskDelay(pdMS_TO_TICKS(10000));
-    }
-
+    //上电之后延时5s刷新一次时间，之后不再联网刷新，完全使用RTC
+    vTaskDelay(pdMS_TO_TICKS(5000));
+    get_time();
     //删除任务
     vTaskDelete(NULL);
 }
@@ -244,12 +241,9 @@ static void Task_HttpGetTime(void* arg){
  * 返回值：无
  */
 static void Task_HttpGetWeather(void* arg){
-    while(1){
-        // get_weather();
-        //10min刷新一次天气（调试用1min）
-        vTaskDelay(pdMS_TO_TICKS(60000));
-    }
-
+    //上电之后延时5s刷新一次天气，之后不再联网刷新
+    vTaskDelay(pdMS_TO_TICKS(5000));
+    get_weather();
     //删除任务
     vTaskDelete(NULL);
 }
@@ -317,10 +311,10 @@ static void Task_RTCGetTime(void* arg){
         uart_send_num(timeinfo.tm_min);
         uart_send_string("\r\n");
 
-        // 秒
-        uart_send_string("second:");
-        uart_send_num(timeinfo.tm_sec);
-        uart_send_string("\r\n");
+        // // 秒
+        // uart_send_string("second:");
+        // uart_send_num(timeinfo.tm_sec);
+        // uart_send_string("\r\n");
 
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
@@ -414,9 +408,9 @@ void app_main(void)
 
     // 创建任务（数字越大优先级越高）
     // 联网获取时间任务
-    xTaskCreatePinnedToCore(Task_HttpGetTime, "http get time", 8192, NULL, 6, NULL, 1);
+    xTaskCreatePinnedToCore(Task_HttpGetTime, "http get time", 16384, NULL, 10, NULL, 1);
     // 联网获取天气任务
-    xTaskCreatePinnedToCore(Task_HttpGetWeather, "http get weather", 8192, NULL, 5, NULL, 1);
+    xTaskCreatePinnedToCore(Task_HttpGetWeather, "http get weather", 16384, NULL, 8, NULL, 1);
     // RTC获取时间任务
     xTaskCreatePinnedToCore(Task_RTCGetTime, "rtc get time", 4096, NULL, 3, NULL, 1);
 
