@@ -1,4 +1,5 @@
 /* include */
+// 蓝牙的include
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,8 +22,30 @@
 #include "esp_a2dp_api.h"
 #include "esp_avrc_api.h"
 
+// 天气时钟的include
+#include <sys/param.h>
+#include <ctype.h>
+#include <time.h>
+#include "esp_event.h"
+#include "esp_netif.h"
+#include "protocol_examples_common.h"
+#include "protocol_examples_utils.h"
+#include "esp_tls.h"
+#include "esp_system.h"
+#include "esp_sntp.h"
+
+#include "get_time_and_weather.h"
+#include "myuart.h"
+
 /* device name */
 #define LOCAL_DEVICE_NAME    "Desktop_Cube"
+
+// TAG define
+#define HTTP_TAG            "HTTP_CLIENT"
+#define TIME_TAG            "Recent time"
+#define REFRESHTIME_TAG     "Refresh time"
+#define WEATHER_TAG         "now weather"
+#define DEBUG_TAG           "Debug"
 
 /* event for stack up */
 enum {
