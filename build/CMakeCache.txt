@@ -368,15 +368,6 @@ USE_SHARED_MBEDTLS_LIBRARY:BOOL=OFF
 USE_STATIC_MBEDTLS_LIBRARY:BOOL=ON
 
 //Value Computed by CMake
-bluetooth_BINARY_DIR:STATIC=/root/my_esp_project/desktop_cube/build
-
-//Value Computed by CMake
-bluetooth_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-bluetooth_SOURCE_DIR:STATIC=/root/my_esp_project/desktop_cube
-
-//Value Computed by CMake
 desktop_BINARY_DIR:STATIC=/root/my_esp_project/desktop_cube/build
 
 //Value Computed by CMake

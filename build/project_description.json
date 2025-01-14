@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "desktop",
-    "project_version":    "acb9da9-dirty",
+    "project_version":    "fa95960-dirty",
     "project_path":       "/root/my_esp_project/desktop_cube",
     "idf_path":           "/root/esp/esp-idf",
     "build_dir":          "/root/my_esp_project/desktop_cube/build",
@@ -1176,11 +1176,11 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "esp_driver_dac", "driver", "esp-tls", "esp_http_client", "json", "protocol_examples_common" ],
+            "priv_reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "esp_driver_dac", "driver", "esp-tls", "esp_http_client", "json", "esp_adc", "protocol_examples_common" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "protocol_examples_common" ],
             "file": "/root/my_esp_project/desktop_cube/build/esp-idf/main/libmain.a",
-            "sources": [ "/root/my_esp_project/desktop_cube/main/bt_app_av.c", "/root/my_esp_project/desktop_cube/main/bt_app_core.c", "/root/my_esp_project/desktop_cube/main/myuart.c", "/root/my_esp_project/desktop_cube/main/get_time_and_weather.c", "/root/my_esp_project/desktop_cube/main/main.c" ],
+            "sources": [ "/root/my_esp_project/desktop_cube/main/bt_app_av.c", "/root/my_esp_project/desktop_cube/main/bt_app_core.c", "/root/my_esp_project/desktop_cube/main/myuart.c", "/root/my_esp_project/desktop_cube/main/myadc.c", "/root/my_esp_project/desktop_cube/main/get_time_and_weather.c", "/root/my_esp_project/desktop_cube/main/main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
@@ -2803,7 +2803,7 @@
             "dir": "/root/my_esp_project/desktop_cube/main",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "esp_driver_dac", "driver", "esp-tls", "esp_http_client", "json", "protocol_examples_common" ],
+            "priv_reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "esp_driver_dac", "driver", "esp-tls", "esp_http_client", "json", "esp_adc", "protocol_examples_common" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "protocol_examples_common" ],
             "include_dirs": [ "." ]

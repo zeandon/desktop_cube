@@ -36,6 +36,7 @@
 
 #include "get_time_and_weather.h"
 #include "myuart.h"
+#include "myadc.h"
 
 /* device name */
 #define LOCAL_DEVICE_NAME    "Desktop_Cube"
@@ -46,6 +47,13 @@
 #define REFRESHTIME_TAG     "Refresh time"
 #define WEATHER_TAG         "now weather"
 #define DEBUG_TAG           "Debug"
+#define ADC_TAG             "adc detect"
+
+// 变量 define
+int adc_raw;
+int voltage;
+double battery_voltage;
+int bat_percent;
 
 /* event for stack up */
 enum {
@@ -242,7 +250,7 @@ static void Task_HttpGetTime(void* arg){
  */
 static void Task_HttpGetWeather(void* arg){
     //上电之后延时5s刷新一次天气，之后不再联网刷新
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    vTaskDelay(pdMS_TO_TICKS(10000));
     get_weather();
     //删除任务
     vTaskDelete(NULL);
@@ -320,6 +328,97 @@ static void Task_RTCGetTime(void* arg){
     }
 }
 
+/*
+ * 简介：  使用ADC检测电池电量
+ * 参数：  arg
+ * 返回值：无
+ */
+static void Task_ADCGetVoltage(void* arg){
+
+    //-------------ADC1 Init---------------//
+    adc_oneshot_unit_handle_t adc1_handle;
+    adc_oneshot_unit_init_cfg_t init_config1 = {
+        .unit_id = ADC_UNIT_1,
+    };
+    ESP_ERROR_CHECK(adc_oneshot_new_unit(&init_config1, &adc1_handle));
+
+    //-------------ADC1 Config---------------//
+    adc_oneshot_chan_cfg_t config = {
+        .bitwidth = ADC_BITWIDTH_DEFAULT,
+        .atten = EXAMPLE_ADC_ATTEN,
+    };
+    ESP_ERROR_CHECK(adc_oneshot_config_channel(adc1_handle, EXAMPLE_ADC1_CHAN0, &config));
+
+    //-------------ADC1 Calibration Init---------------//
+    adc_cali_handle_t adc1_cali_chan0_handle = NULL;
+    bool do_calibration1_chan0 = example_adc_calibration_init(ADC_UNIT_1, EXAMPLE_ADC1_CHAN0, EXAMPLE_ADC_ATTEN, &adc1_cali_chan0_handle);
+
+    while (1) {
+        ESP_ERROR_CHECK(adc_oneshot_read(adc1_handle, EXAMPLE_ADC1_CHAN0, &adc_raw));
+        ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Raw Data: %d", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, adc_raw);
+        if (do_calibration1_chan0) {
+            // 原始ADC数据转化为电压数据
+            ESP_ERROR_CHECK(adc_cali_raw_to_voltage(adc1_cali_chan0_handle, adc_raw, &voltage));
+            ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Cali Voltage: %d mV", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, voltage);
+
+            // 经过分压得到电池电压
+            battery_voltage = (double)voltage / 0.6256;
+            ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Battery Voltage: %.1f mV", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, battery_voltage);
+
+            // 根据查表判断当前电压值对应的电池电量
+            if(battery_voltage >= 4.15){
+                bat_percent = 100;
+            }
+            else if(battery_voltage >= 4.08){
+                bat_percent = 90;
+            }
+            else if(battery_voltage >= 3.97){
+                bat_percent = 80;
+            }
+            else if(battery_voltage >= 3.90){
+                bat_percent = 70;
+            }
+            else if(battery_voltage >= 3.84){
+                bat_percent = 60;
+            }
+            else if(battery_voltage >= 3.79){
+                bat_percent = 50;
+            }
+            else if(battery_voltage >= 3.76){
+                bat_percent = 40;
+            }
+            else if(battery_voltage >= 3.73){
+                bat_percent = 30;
+            }
+            else if(battery_voltage >= 3.71){
+                bat_percent = 20;
+            }
+            else if(battery_voltage >= 3.65){
+                bat_percent = 10;
+            }
+            else{
+                bat_percent = 0;
+            }
+            ESP_LOGI(ADC_TAG, "Battery power percent: %d%%",bat_percent);
+
+            // 串口打印
+            uart_send_string("battery power percent:");
+            uart_send_num(bat_percent);
+            uart_send_string("\r\n");
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(5000));
+    }
+
+    //Tear Down（测试完成后进行清理）
+    ESP_ERROR_CHECK(adc_oneshot_del_unit(adc1_handle));
+    if (do_calibration1_chan0) {
+        example_adc_calibration_deinit(adc1_cali_chan0_handle);
+    }
+
+    //删除任务
+    vTaskDelete(NULL);
+}
 
 /*******************************
  * MAIN ENTRY POINT
@@ -413,6 +512,8 @@ void app_main(void)
     xTaskCreatePinnedToCore(Task_HttpGetWeather, "http get weather", 16384, NULL, 8, NULL, 1);
     // RTC获取时间任务
     xTaskCreatePinnedToCore(Task_RTCGetTime, "rtc get time", 4096, NULL, 3, NULL, 1);
+    // ADC检测电量任务
+    xTaskCreatePinnedToCore(Task_ADCGetVoltage, "adc get voltage", 2048, NULL, 12, NULL, 0);
 
     // 拉高GPIO25，使能MAX98357
     gpio_config_t Gpio_config = {

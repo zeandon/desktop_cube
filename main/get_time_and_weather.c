@@ -145,7 +145,7 @@ static void Time_http_rest_with_url(void)
         .event_handler = _http_event_handler,
         .user_data = local_response_buffer,        // Pass address of local buffer to get response
         .disable_auto_redirect = true,
-        .timeout_ms = 10000,
+        .timeout_ms = 60000,
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
 
