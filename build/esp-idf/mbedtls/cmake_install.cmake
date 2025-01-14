@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/my_esp_project/desktop_cube/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
+  include("/root/my_esp_project/bluetooth/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
 endif()
 

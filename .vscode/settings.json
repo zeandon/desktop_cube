@@ -1,12 +1,10 @@
 {
-    "idf.port": "/dev/ttyUSB0",
-    "idf.flashType": "UART",
-    "files.associations": {
-        "param.h": "c",
-        "get_time_and_weather.h": "c",
-        "myuart.h": "c"
-    },
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.espIdfPath": "/root/esp/esp-idf",
     "idf.openOcdConfigs": [
         "board/esp32-wrover-kit-3.3v.cfg"
-    ]
+    ],
+    "idf.port": "/dev/ttyUSB0",
+    "idf.toolsPath": "/root/.espressif",
+    "idf.flashType": "UART"
 }

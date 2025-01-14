@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader
-/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader.rule
-/root/my_esp_project/desktop_cube/build/CMakeFiles/bootloader-complete.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/root/my_esp_project/desktop_cube/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/root/my_esp_project/bluetooth/build/CMakeFiles/bootloader
+/root/my_esp_project/bluetooth/build/CMakeFiles/bootloader.rule
+/root/my_esp_project/bluetooth/build/CMakeFiles/bootloader-complete.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/root/my_esp_project/bluetooth/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

@@ -1,4 +1,4 @@
-/* * Data converted from /root/my_esp_project/desktop_cube/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /root/my_esp_project/bluetooth/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)
