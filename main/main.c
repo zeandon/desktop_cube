@@ -52,7 +52,7 @@
 // 变量 define
 int adc_raw;
 int voltage;
-double battery_voltage;
+double bat_voltage;
 int bat_percent;
 
 /* event for stack up */
@@ -289,42 +289,44 @@ static void Task_RTCGetTime(void* arg){
         // uart_send_num(timeinfo.tm_yday);
         // uart_send_string("\r\n");
 
-        // 年
-        uart_send_string("year:");
-        uart_send_num(timeinfo.tm_year);
-        uart_send_string("\r\n");
+        // // 年
+        // uart_send_string("year:");
+        // uart_send_num(timeinfo.tm_year);
+        // uart_send_string("\r\n");
 
         // 月
-        uart_send_string("month:");
-        uart_send_num(timeinfo.tm_mon);
-        uart_send_string("\r\n");
+        uart_send_string("month.val=");
+        int real_mon = timeinfo.tm_mon + 1;     // 补偿
+        uart_send_num(real_mon);
+        uart_send_string("\xff\xff\xff");
 
         // 日
-        uart_send_string("mday:");
+        uart_send_string("day.val=");
         uart_send_num(timeinfo.tm_mday);
-        uart_send_string("\r\n");
+        uart_send_string("\xff\xff\xff");
 
-        // 周
-        uart_send_string("wday:");
-        uart_send_num(timeinfo.tm_wday);
-        uart_send_string("\r\n");
+        // // 周
+        // uart_send_string("wday:");
+        // uart_send_num(timeinfo.tm_wday);
+        // uart_send_string("\r\n");
 
         // 时
-        uart_send_string("hour:");
+        uart_send_string("hour.val=");
         uart_send_num(timeinfo.tm_hour);
-        uart_send_string("\r\n");
+        uart_send_string("\xff\xff\xff");
 
         // 分
-        uart_send_string("minute:");
+        uart_send_string("minute.val=");
         uart_send_num(timeinfo.tm_min);
-        uart_send_string("\r\n");
+        uart_send_string("\xff\xff\xff");
 
         // // 秒
         // uart_send_string("second:");
         // uart_send_num(timeinfo.tm_sec);
         // uart_send_string("\r\n");
 
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        // 10s刷新一次
+        vTaskDelay(pdMS_TO_TICKS(10000));
     }
 }
 
@@ -362,38 +364,37 @@ static void Task_ADCGetVoltage(void* arg){
             ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Cali Voltage: %d mV", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, voltage);
 
             // 经过分压得到电池电压
-            battery_voltage = (double)voltage / 0.6256;
-            ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Battery Voltage: %.1f mV", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, battery_voltage);
-
+            bat_voltage = (double)voltage * 2;
+            ESP_LOGI(ADC_TAG, "ADC%d Channel[%d] Battery Voltage: %.1f mV", ADC_UNIT_1 + 1, EXAMPLE_ADC1_CHAN0, bat_voltage);
             // 根据查表判断当前电压值对应的电池电量
-            if(battery_voltage >= 4.15){
+            if(bat_voltage >= 4150){
                 bat_percent = 100;
             }
-            else if(battery_voltage >= 4.08){
+            else if(bat_voltage >= 4080){
                 bat_percent = 90;
             }
-            else if(battery_voltage >= 3.97){
+            else if(bat_voltage >= 3970){
                 bat_percent = 80;
             }
-            else if(battery_voltage >= 3.90){
+            else if(bat_voltage >= 3900){
                 bat_percent = 70;
             }
-            else if(battery_voltage >= 3.84){
+            else if(bat_voltage >= 3840){
                 bat_percent = 60;
             }
-            else if(battery_voltage >= 3.79){
+            else if(bat_voltage >= 3790){
                 bat_percent = 50;
             }
-            else if(battery_voltage >= 3.76){
+            else if(bat_voltage >= 3760){
                 bat_percent = 40;
             }
-            else if(battery_voltage >= 3.73){
+            else if(bat_voltage >= 3730){
                 bat_percent = 30;
             }
-            else if(battery_voltage >= 3.71){
+            else if(bat_voltage >= 3710){
                 bat_percent = 20;
             }
-            else if(battery_voltage >= 3.65){
+            else if(bat_voltage >= 3650){
                 bat_percent = 10;
             }
             else{
@@ -402,12 +403,13 @@ static void Task_ADCGetVoltage(void* arg){
             ESP_LOGI(ADC_TAG, "Battery power percent: %d%%",bat_percent);
 
             // 串口打印
-            uart_send_string("battery power percent:");
+            uart_send_string("bat.val=");
             uart_send_num(bat_percent);
-            uart_send_string("\r\n");
+            uart_send_string("\xff\xff\xff");
         }
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        // 1min刷新一次
+        vTaskDelay(pdMS_TO_TICKS(60000));
     }
 
     //Tear Down（测试完成后进行清理）

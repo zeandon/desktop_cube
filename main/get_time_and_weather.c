@@ -242,30 +242,30 @@ static void Weather_http_rest_with_url(void)
     // 通过LOG打印得到的数据
     ESP_LOGI(WEATHER_TAG,"地区 %s\r\n天气 %s\r\n温度 %d\r\n湿度 %d\r\n风力 %s\r\n风向 %s\r\n",name,text,temp,rh,wind_class,wind_dir);
 
-    // 通过串口打印得到的数据
-    uart_send_string("location:");
-    uart_send_string(name);
-    uart_send_string("\r\n");
+    // // 通过串口打印得到的数据
+    // uart_send_string("location:");
+    // uart_send_string(name);
+    // uart_send_string("\r\n");
 
-    uart_send_string("weather:");
+    uart_send_string("weather.txt=\"");
     uart_send_string(text);
-    uart_send_string("\r\n");
+    uart_send_string("\"\xff\xff\xff");
 
-    uart_send_string("temperature:");
+    uart_send_string("temperature.val=");
     uart_send_num(temp);
-    uart_send_string("\r\n");
+    uart_send_string("\xff\xff\xff");
 
-    uart_send_string("humidity:");
-    uart_send_num(rh);
-    uart_send_string("\r\n");
+    // uart_send_string("humidity:");
+    // uart_send_num(rh);
+    // uart_send_string("\r\n");
 
-    uart_send_string("wind power:");
-    uart_send_string(wind_class);
-    uart_send_string("\r\n");
+    // uart_send_string("wind power:");
+    // uart_send_string(wind_class);
+    // uart_send_string("\r\n");
 
-    uart_send_string("wind direction:");
-    uart_send_string(wind_dir);
-    uart_send_string("\r\n");
+    // uart_send_string("wind direction:");
+    // uart_send_string(wind_dir);
+    // uart_send_string("\r\n");
 
     //删除cJSON结构体对象，防止内存泄漏
     cJSON_Delete(root);
